@@ -4,6 +4,7 @@ import handlebars from "express-handlebars";
 import path from "path";
 import productsRoutes from "./routes/products.routes.js";
 import cartsRoutes from "./routes/carts.routes.js";
+import productsView from "./routes/products.view.js";
 import { Server } from "socket.io";
 import ProductManager from "./services/ProductManager.js";
 
@@ -17,6 +18,7 @@ app.use(express.static(path.resolve(__dirname, "../public")));
 //Routes
 app.use("/api/products", productsRoutes);
 app.use("/api/carts", cartsRoutes);
+app.use("/", productsView);
 
 //Config engine hablders
 app.engine(
